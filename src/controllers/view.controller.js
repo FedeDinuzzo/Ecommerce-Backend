@@ -1,7 +1,7 @@
 
 import { getSession } from "./session.controller.js"
-import {env} from "../config/config.js"
-import {jwtReader } from '../utils/jwt.js'
+import { env } from "../config/config.js"
+import { jwtReader } from '../utils/jwt.js'
 
 
 const PRODUCTS_URL = `http://localhost:${env.port || 5000}/api/products`
