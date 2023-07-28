@@ -1,14 +1,14 @@
-import {env,swaggerOptions} from "./config/config.js"
+import {env,swaggerOptions} from "./src/config/config.js"
 import express from "express";
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose';
-import { __dirname } from "./path.js";
-import routers from './routes/routes.js'
+import { __dirname } from "./src/path.js";
+import routers from './src/routes/routes.js'
 import passport from "passport";
-import initializePassport from "./middleware/passport.js";
+import initializePassport from "./src/middleware/passport.js";
 import session from 'express-session';
-import errorHandler from "./middleware/errors/errorHandler.js";
-import { addLogger } from './utils/logger.js'
+import errorHandler from "./src/middleware/errors/errorHandler.js";
+import { addLogger } from './src/utils/logger.js'
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from 'swagger-ui-express'
 import cors from 'cors'
