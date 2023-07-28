@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 export const login = async (cliente) => {
-  const response = await fetch('http://localhost:4000/api/session/login', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/session/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const login = async (cliente) => {
 }
 
 export const loginGoogle = async (cliente) => {
-  const response = await fetch('http://localhost:4000/api/session/login', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/session/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -44,7 +44,7 @@ export const loginGoogle = async (cliente) => {
 }
 
 export const loginGithub = async (email, password) => {
-  const response = await fetch('http://localhost:4000/authGithub/githubSession', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/authGithub/githubSession`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -66,7 +66,7 @@ export const loginGithub = async (email, password) => {
 }
 
 export const register = async (cliente) => {
-  const response = await fetch('http://localhost:4000/api/session/login', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/session/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -88,7 +88,7 @@ export const register = async (cliente) => {
 }
 
 export const registerGoogle = async (cliente) => {
-  const response = await fetch('http://localhost:4000/api/session/login', {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/session/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
