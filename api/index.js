@@ -42,7 +42,7 @@ app.use(express.json())
 
 app.use(cors(
   {
-    origin: ['https://ecommerce-mern-coder.vercel.app'],
+    origin: ['https://dinuzzo-frontend.onrender.com/'],
     methods: ['POST', 'GET', 'PUT' , 'DELETE'],
     credentials: true
   }
