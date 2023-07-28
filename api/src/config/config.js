@@ -35,15 +35,3 @@ export const env = {
   mailUser: process.env.MAIL_USER,
   mailPass: process.env.MAIL_PASS
 }
-
-
-export const swaggerOptions = {
-  definition: {
-      openapi: '3.0.1',
-      info: {
-          title: "Documentacion Carrito CoderHouse",
-          description: "carrito online para practica de Coderhouse"
-      }
-  },
-  apis: [`${__dirname}/docs/**/*.yaml`] //donde esta mis documentos 
-}

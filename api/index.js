@@ -1,4 +1,4 @@
-import {env,swaggerOptions} from "./src/config/config.js"
+import {env} from "./src/config/config.js"
 import express from "express";
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose';
@@ -9,11 +9,9 @@ import initializePassport from "./src/middleware/passport.js";
 import session from 'express-session';
 import errorHandler from "./src/middleware/errors/errorHandler.js";
 import { addLogger } from './src/utils/logger.js'
-import swaggerJSDoc from 'swagger-jsdoc';
-import swaggerUiExpress from 'swagger-ui-express'
 import cors from 'cors'
 
-const whiteList = ['https://dinuzzo-frontend.vercel.app', 'https://dinuzzo-frontend.onrender.com'] // Rutas validas de mi servidor
+const whiteList = ['https://dinuzzo-frontend.vercel.app', 'https://dinuzzo-frontend.onrender.com' , 'https://dinuzzo-backend.onrender.com'] // Rutas validas de mi servidor
 
 const corsOptions = { // Reviso si el cliente que intenta ingresar a mi servidor esta o no en esta lista
   origin: (origin, callback) => {
@@ -72,9 +70,6 @@ app.use('/', routers)
 
 //Public folder
 app.use('/', express.static(__dirname + '/public'))
-
-const specs = swaggerJSDoc(swaggerOptions)
-app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 app.use(errorHandler); 
 
