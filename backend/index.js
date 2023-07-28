@@ -31,7 +31,7 @@ const app = express();
 
 // app.use((req, res, next) => {
 //     res.header('Access-Control-Allow-Origin', 'https://dinuzzo-frontend.vercel.app');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Methods', );
 //   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //   res.setHeader('Access-Control-Allow-Credentials', 'true');
 //   next();
@@ -40,7 +40,13 @@ const app = express();
 // Define los middleware para la aplicación
 app.use(express.json())
 
-app.use(cors())
+app.use(cors(
+  {
+    origin: ['https://ecommerce-mern-coder.vercel.app'],
+    methods: ['POST', 'GET', 'PUT' , 'DELETE'],
+    credentials: true
+  }
+))
 // app.use(cors(corsOptions))
 
 app.use(express.urlencoded({ extended: true })); //Permite realizar consultas en la URL (req.query)
