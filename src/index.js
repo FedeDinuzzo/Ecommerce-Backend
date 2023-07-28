@@ -8,11 +8,6 @@ import passport from "passport";
 import initializePassport from "./middleware/passport.js";
 import session from 'express-session';
 import errorHandler from "./middleware/errors/errorHandler.js";
-import {Server} from "socket.io";
-import * as path from 'path'
-import { engine } from 'express-handlebars';
-import {findMessages, updateMessage} from './services/messageService.js'
-import {findUserByEmail} from './services/userService.js'
 import { addLogger } from './utils/logger.js'
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from 'swagger-ui-express'
@@ -92,38 +87,6 @@ app.use((req, res, next)=> {
 // Configura el puerto del servidor y lo inicia
 app.set ("port", env.port || 5000)
 
-const server = app.listen(app.get("port"), () => {
+app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`)
 })
-
-// HandleBars Configuration
-app.engine('handlebars', engine());   //configuración del motor de express
-app.set('view engine', 'handlebars'); //indica que usaremos el motor de vista handlebars
-app.set('views', path.resolve(__dirname, './views')); //__dirname + './views'
-
-// ServerIO
-const io = new Server(server)
-
-// SocketIo Server Connection
-io.on("connection", async (socket)=> {  
-  console.log("cliente socket conectado!");  
-  
-  socket.on("loadMessage", async () => {
-    const textMessage = await findMessages()
-    socket.emit("pushMessage", textMessage)
-  })
-  
-  socket.on("addMessage", async (newMessage) => {
-    await updateMessage([newMessage])  
-
-    const textMessage = await findMessages()    
-    socket.emit("pushMessage", textMessage)
-  })
-
-  socket.on("mailValidation",async(email) => {
-    const answer = await findUserByEmail(email) 
-    socket.emit("answerMailValidation", answer)
-  })
-})
-
-
