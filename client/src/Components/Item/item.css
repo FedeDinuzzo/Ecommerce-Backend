@@ -1,4 +1,46 @@
 .fondo {
-    background: linear-gradient(114.95deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 71, 255, 0) 34%), linear-gradient(180deg, #004B5B 0%, #470101 100%), linear-gradient(244deg, #eedac7 0%, #3676B1 50.58%, #00A3FF 100%), linear-gradient(244deg, #FFFFFF 0%, #004A74 49.48%, #FF0000 100%), radial-gradient(100% 233.99% at 0% 100%, #000f42 0%, #00285c 100%), linear-gradient(307.27deg, #82c9bc 0.37%, #203c81 50.19%, #2800C6 100%), radial-gradient(100% 140% at 100% 0%, #080333 0%, #91adb1 49.5%, #121420 100%);
-    background-blend-mode: hard-light, overlay, overlay, overlay, difference, hard-light, normal;
+    background: 
+  /* Gradient 1 */
+  linear-gradient(0deg, rgb(15, 22, 30) 10%, rgb(175, 204, 222) 100%),
+  /* Gradient 2 */
+  linear-gradient(120deg, rgb(15, 22, 30) 30%, rgb(175, 204, 222) 110%),
+  /* Gradient 3 */
+  radial-gradient(300% 200% at 100% 0%, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 30%, rgb(15, 22, 30) 100%),
+  /* Gradient 4 */
+  linear-gradient(60deg, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 100%),
+  /* Gradient 5 */
+  linear-gradient(190deg, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 90%),
+  /* Gradient 6 */
+  linear-gradient(180deg, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 75%),
+  /* Gradient 7 */
+  linear-gradient(220deg, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 70%),
+  /* Gradient 8 */
+  radial-gradient(100% 220% at 50% 100%, rgb(15, 22, 30) 0%, rgb(175, 204, 222) 100%);
+
+background-blend-mode: 
+  /* Apply blend mode to Gradient 1 */
+  overlay,
+  /* Apply blend mode to Gradient 2 */
+  overlay,
+  /* Apply blend mode to Gradient 3 */
+  difference,
+  /* Apply blend mode to Gradient 4 */
+  difference,
+  /* Apply blend mode to Gradient 5 */
+  overlay,
+  /* Apply blend mode to Gradient 6 */
+  difference,
+  /* Apply blend mode to Gradient 7 */
+  difference,
+  /* Apply blend mode to Gradient 8 */
+  normal;
 }
+
+/* 15, 22, 30
+175, 204, 222 */
+/* linear-gradient(100deg, rgb(255, 255, 255) 10%, rgb(0, 6, 47) 100%), 
+linear-gradient(120deg, rgb(42, 42, 42) 30%, rgb(0, 28, 100) 110%), 
+radial-gradient(100% 220% at 100% 0%, rgb(67, 67, 67) 0%, rgb(255, 255, 255) 30%, rgb(79, 79, 79) 100%), 
+linear-gradient(60deg, rgb(34, 0, 242) 0%, rgb(175, 204, 222) 100%), 
+linear-gradient(190deg, rgb(31, 236, 255) 0%, rgb(70, 70, 70) 90%),
+overlay, overlay, color-burn, screen, color-burn,  */
