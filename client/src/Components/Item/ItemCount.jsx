@@ -19,7 +19,7 @@ const ItemCount = ({initial, stock, onAdd, product}) => {
         <> 
         <div className="text-center flex justify-center lg:justify-start text-3xl text-white">
             <div className="mt-4 flex flex-wrap lg:ml-0 w-56 m-2 justify-center lg:justify-start">
-                <button onClick={decrease} className={COMMON_STYLES + " lg:ml-6"}>-</button>
+                <button onClick={decrease} className={COMMON_STYLES + " lg:ml-3"}>-</button>
                 <div className="h-10 w-10 mx-2 rounded bg-white text-black lg:bg-transparent">{count}</div>
                 <button onClick={increase} className={COMMON_STYLES}>+</button>
                 <button onClick={() => onAdd(product, count)}

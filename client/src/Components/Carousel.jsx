@@ -38,7 +38,7 @@ function Carousel({ product }) {
                     src={product.thumbnail[index]}
                     alt=""
                     onLoad={() => setLoaded(true)}
-                    className={(loaded ? '' : (slide ? 'transition duration-300 opacity-0 translate-x-full' : 'transition duration-300 opacity-0 -translate-x-full')) + " object-cover h-[30rem] md:h-[40rem] w-screen m-auto block"}
+                    className={(loaded ? '' : (slide ? 'transition duration-300 opacity-0 translate-x-full' : 'transition duration-300 opacity-0 -translate-x-full')) + " object-contain h-[30rem] md:h-[40rem] w-screen m-auto block"}
                 />
                 <img src={product.thumbnail[index + 1]} alt="" className="hidden" />
                 <button onClick={next} className="opacity-40 hover:opacity-100 absolute top-center right-4 fondotext-[fondo] text-3xl p-1 bg-gray-100 rounded-full">{'>'}</button>

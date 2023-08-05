@@ -29,7 +29,7 @@ function ItemDetail({ product }) {
                 <h3 className="hidden lg:block text-gray-400 text-3xl">{product.title}</h3>
                 <h3 className="hidden lg:block text-xl text-slate-700 mb-4">{product.description}</h3>
                 <h3 className="text-gray-500 font-bold text-2xl my-4">${product.price}</h3>
-                <p className="mb-2">{product.description}</p>
+                <p className="mb-2 lg:hidden">{product.description}</p>
                 { count === 0 ? 
                     <ItemCount initial={1} stock={product.stock} onAdd={onAdd} product={product} />
                     : <ItemCart product={product} />

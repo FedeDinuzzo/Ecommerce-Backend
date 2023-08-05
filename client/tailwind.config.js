@@ -9,7 +9,7 @@ module.exports = {
       },
     },  
     fontFamily: {
-      body: ['Poppins'],
+      body: ['Saira Semi Condensed'],
     },
   },
   plugins: [],

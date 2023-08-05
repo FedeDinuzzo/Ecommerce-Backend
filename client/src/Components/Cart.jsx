@@ -21,7 +21,7 @@ export default function Cart() {
                     <div class="absolute -inset-1 bg-gradient-to-r from-green-300 to-gray-500 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"/>
                     <div class="relative bg-white ring-1 ring-gray-900/5 rounded-xl leading-none">
                         <div className="grid grid-cols-3 md:grid-cols-5 items-center text-center m-4 py-6">
-                            <Link to={`/item/${prod._id}`}><img src={prod.thumbnail[0]} alt="product" height="80" width="80" className="m-auto h-24 w-24" /></Link>
+                            <Link to={`/item/${prod._id}`}><img src={prod.thumbnail[0]} alt="product" height="80" width="80" className="m-auto" /></Link>
                             <Link to={`/item/${prod._id}`}><h3 className="text-gray-400 md:text-xl">{prod.title}</h3></Link>
                             <h3 className="text-green-400 font-bold">Quantity {parseInt(prod.quantity)}</h3>
                             
