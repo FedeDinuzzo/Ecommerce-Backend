@@ -13,7 +13,7 @@ export const getProducts = async (req, res) => {  //Recupera todos los productos
   const filter = { stock: { $gt: 0 } } // Filtro Mongodb para traer productos con stock > 0
   category && (filter.category = category)
       
-  limit || (limit = 10)  
+  limit || (limit = 20)  
   page  || (page  =  1)
 
   
