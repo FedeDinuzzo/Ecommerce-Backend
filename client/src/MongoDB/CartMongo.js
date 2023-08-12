@@ -1,18 +1,17 @@
 import { toast } from 'react-toastify';
 
-export const getCart = async () => {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/carts`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include"
-  });
+// export const getCart = async () => {
+//   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/carts`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     credentials: "include"
+//   });
 
-  const cart = await response.json();
-  console.log(cart)
-  return cart;
-};
+//   const data = await response.json();
+//   return data;
+// };
 
 export const deleteProductsCart = async (cookies) => {
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/carts`, {
@@ -48,7 +47,7 @@ export const addProductInCart = async (pid) => {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include"
+    credentials: "include",
   });
 
   response.status == 200 ?
@@ -62,8 +61,8 @@ export const addProductInCart = async (pid) => {
       width: "200px",
     })
 
-  const cart = await response.json();
-  return cart;
+  const data = await response.json();
+  return data;
 };
 
 export const putQuantityProduct = async (cid, pid, quantity, cookies) => {
