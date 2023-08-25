@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-import { toast } from 'react-toastify';
 import { addProductInCart } from '../MongoDB/CartMongo'
 
 export const Context = createContext();
@@ -7,11 +6,10 @@ export const Context = createContext();
 export default function ContextProvider({children}) {
   const [cart, setCart] = useState([]);
 
-  
-
   const addToCart = async (product, quantity) => {
     product.quantity = quantity;
     const productIndex = cart.findIndex(item => item.id === product._id);
+    // item.id que devuelve?
     const pid = product._id
 
     try {
