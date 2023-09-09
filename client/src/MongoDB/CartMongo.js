@@ -42,6 +42,8 @@ export const deleteProductsCart = async (cookies) => {
 //   .put(putProductsCart)
 
 export const addProductInCart = async (pid) => {
+  // body: JSON.stringify(quantity)
+  // modificar para que pueda recibir mas de uno?
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/carts/product/${pid}`, {
     method: "POST",
     headers: {
@@ -50,19 +52,7 @@ export const addProductInCart = async (pid) => {
     credentials: "include",
   });
 
-  response.status == 200 ?
-    toast.success("Product added successfully", {
-      position: "bottom-left",
-      width: "200px",
-    })
-  :
-    toast.error("Error adding product try in a few minutes", {
-      position: "bottom-left",
-      width: "200px",
-    })
-
-  const data = await response.json();
-  return data;
+  return response;
 };
 
 export const putQuantityProduct = async (cid, pid, quantity, cookies) => {

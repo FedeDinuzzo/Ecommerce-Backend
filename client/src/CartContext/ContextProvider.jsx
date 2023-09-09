@@ -1,6 +1,28 @@
 import { createContext, useState } from 'react';
 import { addProductInCart } from '../MongoDB/CartMongo'
 
+// inicio sesion
+// traigo el carrito actualizado
+// agrego un producto a la db, con la cantidad dada
+// si se agrega a la db, lo agrego al array de cart, toast ok
+// si no se agrega, toast error de db
+// si el producto ya existia en carrito, modifico la cantidad, toast ok quantity
+// cuando, recargo la pagina, o cierro sesion, la recupero y ya me trae el carrito, porque el user tiene al carrito
+
+// DE ESTA MANERA NO ES NECESARIO REALIZAR UN GET DEL CARRITO CADA VEZ QUE QUE LO MODIFICO
+// Ya que persiste en el componente de react a la vez que se realiza un post o update
+
+// response.status == 200 ?
+// toast.success("Product added successfully", {
+//   position: "bottom-left",
+//   width: "200px",
+// })
+// :
+// toast.error("Error adding product try in a few minutes", {
+//   position: "bottom-left",
+//   width: "200px",
+// })
+
 export const Context = createContext();
 
 export default function ContextProvider({children}) {
@@ -8,21 +30,20 @@ export default function ContextProvider({children}) {
 
   const addToCart = async (product, quantity) => {
     product.quantity = quantity;
-    const productIndex = cart.findIndex(item => item.id === product._id);
+    const prodInCart = cart.find(item => item.id === product._id);
     // item.id que devuelve?
     const pid = product._id
 
     try {
-      if (productIndex === -1) {
+      if (!prodInCart) {
         // AGREGAR MAS DE UNO MODIFICAR
         // If the product is not in the cart, add it with the given quantity
         addProductInCart(pid)
-          .then(data => {
-          console.log(data)
+          .then(response => {
+          response.status == 200 ? 
+            setCart(pid)
+          : console.error('no se pudo agregar al carrito, try later')
         })
-          .catch(error => {
-            console.log(error)
-        });
         
         // cart.status == 200 ? 
         // setCart([...cart, product]);
@@ -33,6 +54,9 @@ export default function ContextProvider({children}) {
       //     width: "200px",
       //   });
       } else {
+        // updateProdQuantity(pid, pqty)
+        // setCart(pqty)
+
       //   const newCart = [...cart];
       //   newCart[productIndex].quantity += quantity;
       //   setCart(newCart);
